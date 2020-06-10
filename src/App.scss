@@ -62,11 +62,11 @@
   margin: 0 10px 30px 10px;
 }
 
-.ellipsis{
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  display: block;
+.ellipsis {
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  display: block !important;
 }
 
 .movie {

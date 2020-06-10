@@ -7,7 +7,7 @@ import Header from "./Header";
 import Movie from "./Movie";
 import Search from "./SearchBox";
 
-import './../App.css';
+import './../App.scss';
 
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=saw&apikey=4a3b711b";
 
