@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = (props) => {
   return (
-    <header className="App-header">
+    <header className="App-header" onClick={props.refreshPage}>
       <h2>{props.title}</h2>
     </header>
   );

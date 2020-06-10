@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Segment, Button } from 'semantic-ui-react'
 
 const Search = ({ search }) => {
   
@@ -19,14 +20,21 @@ const Search = ({ search }) => {
   }
 
   return (
-    <form className="search">
-      <input
-        value={searchValue}
-        onChange={handleSearchBoxChanges}
-        type="text"
-      />
-      <input onClick={searchInputHandler} type="submit" value="SEARCH" />
-    </form>
+    <Segment raised className="margin-top-no">
+      <form className="search">
+        <input
+          value={searchValue}
+          onChange={handleSearchBoxChanges}
+          type="text"
+        />
+        <Button 
+          primary 
+          onClick={searchInputHandler}
+          >
+          SEARCH
+        </Button>
+      </form>
+    </Segment>
   );
 };
 

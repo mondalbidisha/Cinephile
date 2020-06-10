@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect } from "react";
+import { Loader, Segment, Card } from 'semantic-ui-react'
 
 import Header from "./Header";
 import Movie from "./Movie";
@@ -6,7 +7,6 @@ import './../App.css';
 import Search from "./SearchBox";
 import { initialState, reducer } from "../store/reducer";
 import axios from "axios";
-// import spinner from "../assets/ajax-loader.gif";
 
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=saw&apikey=4a3b711b";
 
@@ -22,10 +22,9 @@ const App = () => {
     });
   }, []);
 
-  // you can add this to the onClick listener of the Header component
-  // const refreshPage = () => {
-  //   window.location.reload();
-  // };
+  const refreshPage = () => {
+    window.location.reload();
+  };
 
   const search = searchValue => {
     dispatch({
@@ -52,26 +51,39 @@ const App = () => {
   const { movies, errorMessage, loading } = state;
 
   const retrievedMovies =
-    // loading && !errorMessage ? (
-    //   <img className="spinner" src={spinner} alt="Loading spinner" />
-    // ) : errorMessage ? (
-    //   <div className="errorMessage">{errorMessage}</div>
-    // ) : (
-      movies.map((movie, index) => (
+    loading && !errorMessage ? (
+      <div className="spinner">
+        <Loader 
+         active 
+         size='massive'>
+          Loading ...
+        </Loader>
+      </div>
+    ) : errorMessage ? (
+      <Segment>
+        <div className="errorMessage">
+          {errorMessage}
+        </div>
+      </Segment>
+    ) : (
+        movies.map((movie, index) => (
         <Movie key={`${index}-${movie.Title}`} movie={movie} />
+        )
       )
-      // )
     );
 
   return (
     <div className="App">
       <div className="m-container">
-        <Header title="Cinephile" />
+        <Header title="Cinephile" refreshPage={refreshPage}/>
 
         <Search search={search} />
-
-        <p className="App-intro">Sharing a few of our favourite movies</p>
-        <div className="movies">{retrievedMovies}</div>
+        <Segment className="border-none box-shadow-none">
+          <p className="App-intro">Sharing a few of our favourite movies</p>
+        </Segment>
+        <Card.Group>
+          <div className="movies">{retrievedMovies}</div>
+        </Card.Group>
       </div>
     </div>
   );
