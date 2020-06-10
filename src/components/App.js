@@ -1,12 +1,13 @@
 import React, { useReducer, useEffect } from "react";
 import { Loader, Segment, Card } from 'semantic-ui-react'
+import { initialState, reducer } from "../store/reducer";
+import axios from "axios";
 
 import Header from "./Header";
 import Movie from "./Movie";
-import './../App.css';
 import Search from "./SearchBox";
-import { initialState, reducer } from "../store/reducer";
-import axios from "axios";
+
+import './../App.css';
 
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=saw&apikey=4a3b711b";
 

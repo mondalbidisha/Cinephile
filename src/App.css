@@ -62,13 +62,23 @@
   margin: 0 10px 30px 10px;
 }
 
+.ellipsis{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+}
+
 .movie {
   padding: 5px 25px 10px 25px;
-  max-width: 25%;
 }
 
 .cursor-pointer {
   cursor: pointer !important;
+}
+
+.ui.card {
+  min-height: 520px !important;
 }
 
 .errorMessage {
@@ -78,6 +88,9 @@
   color: rgb(161, 15, 15);
 }
 
+img {
+  height: 415px !important;
+}
 .margin-top-no {
   margin-top: 0px !important;
 }
